@@ -1,5 +1,5 @@
 # The tag here should match the Meteor version of your app, per .meteor/release
-FROM geoffreybooth/meteor-base:2.11.0 AS bundler
+FROM piemonkey/meteor-base:2.11.0-no-root AS bundler
 
 USER node:node
 

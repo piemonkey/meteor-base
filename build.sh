@@ -3,7 +3,7 @@ source ./support.sh
 
 
 build_cmd() {
-	docker build --build-arg "METEOR_VERSION=$1" --tag geoffreybooth/meteor-base:"$1" ./src
+	docker build --build-arg "METEOR_VERSION=$1" --tag piemonkey/meteor-base:"$1"-no-root ./src
 }
 
 build() {
@@ -33,7 +33,7 @@ for version in "${meteor_versions[@]}"; do
 done
 
 if [[ $building_all_versions ]]; then
-	docker tag geoffreybooth/meteor-base:"${version}" geoffreybooth/meteor-base:latest
+	docker tag piemonkey/meteor-base:"${version}-no-root" piemonkey/meteor-base:latest-no-root
 	printf "${GREEN}Success building Docker base images for all supported Meteor versions\n"
 else
 	printf "${GREEN}Success building Docker base images for Meteor versions ${meteor_versions}\n"
